@@ -1,11 +1,140 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>IT Студентінің Профилі</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        header {
+            background-color: #4CAF50;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .profile {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile img {
+            max-width: 100%;
+            border-radius: 50%;
+            max-height: 150px;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .profile-info {
+            flex: 1;
+            margin-left: 20px;
+        }
+
+        .profile-info h2 {
+            margin-top: 0;
+        }
+
+        .skills {
+            margin-top: 20px;
+        }
+
+        .skills h3 {
+            margin-bottom: 10px;
+        }
+
+        .skills ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .skills ul li {
+            background-color: #e0e0e0;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        .contact {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .profile {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .profile-info {
+                margin-left: 0;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>nurik</h1>
+    <header>
+        <h1>IT Студентінің Профилі</h1>
+    </header>
+
+    <div class="container">
+        <div class="profile">
+            <img src="student-photo.jpg" alt="Студенттің суреті">
+            <div class="profile-info">
+                <h2>Аты-жөні: Дулат Сұлтан</h2>
+                <p>IT студенті, Front-end әзірлеуші болуға ұмтылуда.</p>
+                <div class="skills">
+                    <h3>Дағдылар:</h3>
+                    <ul>
+                        <li>HTML/CSS</li>
+                        <li>JavaScript</li>
+                        <li>Python</li>
+                        <li>SQL</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact">
+            <h3>Байланыс мәліметтері:</h3>
+            <p>Email: d.sultan@example.com</p>
+            <p>Телефон: +7 777 777 77 77</p>
+            <p>Мекенжай: Алматы, Қазақстан</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Дулат Сұлтан. Барлық құқықтар қорғалған.</p>
+    </footer>
 </body>
 </html>
