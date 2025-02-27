@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>ESP32 Firebase Data</title>
+   
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            margin-left: 25px;
+        }
+
+
+        #intOutput {
+            padding: 10px;
+            font-size: 20px;
+        }
+
+
+        .square {
+            margin-top: 50px;
+            margin-left: 25px;
+            width: 100px;
+            height: 100px;
+            background-color: #17df28;
+           
+        }
+    </style>
+
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+        import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
+
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAQA-vxliblFCYzTDJKxN25OlX24VJvlpY",
+            authDomain: "esp8266-3-5a153.firebaseapp.com",
+            databaseURL: "https://esp8266-3-5a153-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "esp8266-3-5a153",
+            storageBucket: "esp8266-3-5a153.firebasestorage.app",
+            messageSenderId: "779012342564",
+            appId: "1:779012342564:web:0e77ddb1ac644f037b29b1"
+        };
+
+
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+
+
+        function fetchData() {
+            const intRef = ref(database, 'test/int');
+
+
+            get(intRef).then((snapshot) => {
+                if (snapshot.exists()) {
+                    const intValue = snapshot.val();
+                    document.getElementById('intOutput').innerText = `Целое число: ${intValue}`;
+                   
+                    const square = document.querySelector('.square');
+                    if (intValue > 100) {
+                        square.style.backgroundColor = 'red';
+                    } else {
+                        square.style.backgroundColor = '#17df28';
+                    }
+                } else {
+                    console.log("Нет данных для целого числа");
+                }
+            }).catch((error) => {
+                console.error("Ошибка при получении целого числа: ", error);
+            });
+        }
+
+
+        setInterval(fetchData, 5000);
+        window.onload = fetchData;
+    </script>
+</head>
+<body>
+    <h1>Данные с Браслет</h1>
+    <div id="intOutput"></div>
+    <div class="square"></div>
+</body>
+</html>
+
+
